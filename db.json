@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin",
+      "name": "Admin User"
+    },
+    {
+      "id": "2",
+      "username": "user1",
+      "password": "user1",
+      "name": "User One"
+    },
+    {
+      "id": 0,
+      "name": "Ganapthi",
+      "username": "gana",
+      "password": "gana"
+    },
+    {
+      "id": "31",
+      "name": "Ponraj",
+      "username": "pon@admin",
+      "password": "pon123"
+    },
+    {
+      "id": "41",
+      "name": "Nandha",
+      "username": "nandhauser",
+      "password": "nandha123"
+    },
+    {
+      "id": "51",
+      "name": "Meenakshi",
+      "username": "meenu",
+      "password": "meenuvasi"
+    },
+    {
+      "id": "61",
+      "name": "karthi",
+      "username": "rk",
+      "password": "rk123"
+    }
+  ]
+}

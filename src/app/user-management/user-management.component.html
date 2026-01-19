@@ -1,0 +1,38 @@
+<!-- <p>user-management works!</p>
+<div>
+    <h1>User Management</h1>
+    <button (click)="onAdduserclick()">Add User</button>
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.name }} <button (click)="deleteUser(user.id)">Delete</button>
+      </li>
+    </ul>
+    <div *ngIf="add==true">
+      <form (ngSubmit)="addUser()">
+        <input type="text" [(ngModel)]="newUser.name" placeholder="Name" [ngModelOptions]="{standalone: true}">
+        <input type="text" [(ngModel)]="newUser.username" placeholder="UserName"[ngModelOptions]="{standalone: true}">
+        <input type="password" [(ngModel)]="newUser.password" placeholder="Password"[ngModelOptions]="{standalone: true}">
+        <button type="submit">Add User</button>
+      </form>
+    </div>
+    
+  </div>
+   -->
+   <div class="user-management">
+    <h1>User Management</h1>
+    <button (click)="onAdduserclick()">Add User</button>
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.name }} <button (click)="deleteUser(user.id)">Delete</button>
+      </li>
+    </ul>
+    <div *ngIf="add==true" class="add-user-form">
+      <form (ngSubmit)="addUser()">
+        <input type="text" [(ngModel)]="newUser.name" placeholder="Name" [ngModelOptions]="{standalone: true}">
+        <input type="text" [(ngModel)]="newUser.username" placeholder="UserName"[ngModelOptions]="{standalone: true}">
+        <input type="password" [(ngModel)]="newUser.password" placeholder="Password"[ngModelOptions]="{standalone: true}">
+        <button type="submit">Add User</button>
+      </form>
+    </div>
+  </div>
+  

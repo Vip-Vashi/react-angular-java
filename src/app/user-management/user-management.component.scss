@@ -1,0 +1,102 @@
+// Global Styles
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  // User Management Container
+  .user-management {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+  
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  
+      li {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+  
+        &:last-child {
+          border-bottom: none;
+        }
+  
+        button {
+          float: right;
+          background-color: #dc3545;
+          color: #fff;
+          border: none;
+          padding: 5px 10px;
+          font-size: 14px;
+          cursor: pointer;
+          border-radius: 5px;
+  
+          &:hover {
+            background-color: #c82333;
+          }
+        }
+      }
+    }
+  
+    // Add User Form
+    .add-user-form {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+  
+      input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+  
+        &:focus {
+          border-color: #aaa;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+      }
+  
+      button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+  

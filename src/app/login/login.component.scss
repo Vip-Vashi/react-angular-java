@@ -1,0 +1,50 @@
+// login.component.scss
+.login-container {
+    max-width: 300px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(201, 199, 199, 0.608);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  
+    input {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #f7f6f6;
+      border-style: none;
+
+      border-radius: 5px;
+      background-color: #fff;
+      &:focus {
+        
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    }
+  
+    input[type="password"] {
+      margin-bottom: 20px; // Additional margin for spacing
+    }
+  
+    button {
+      width: 40%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+  
+ 
