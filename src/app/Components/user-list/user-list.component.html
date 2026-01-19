@@ -1,0 +1,28 @@
+<p>user-list works!</p>
+<h1>User List</h1>
+<input type="text" (input)="onSearch($event)" placeholder="Search users..." />
+<ul>
+  <li *ngFor="let user of filteredUsers">
+    <a [routerLink]="['/users', user.id]" [queryParams]="{ search: searchTerm }">{{ user.name }}</a>
+  </li>
+</ul>
+<a [routerLink]="['/new']">
+    Add User
+    <!-- <button class="btn btn-success" 
+    (click)="isAdduser()"
+    >
+    Add New User</button> -->
+    </a>
+<ul>
+  <li *ngFor="let user of users">
+    <a (click)="viewUser(user.id)">{{ user.name }}</a>
+    <a [routerLink]="['/users', user.id, 'edit']">Edit</a>
+
+  </li>
+</ul>
+<!-- <div *ngIf="isAdd == true">
+    <app-user-form></app-user-form>
+</div> -->
+
+
+

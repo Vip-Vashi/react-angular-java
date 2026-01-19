@@ -1,0 +1,109 @@
+<div class="container">
+    <h3>User Registration using Template Forms</h3>
+    <form class="row g-3" #form="ngForm">
+        <div class="col-md-4">
+          <label>First name</label>
+          <input type="text" [(ngModel)]="user.fname"  name="fname" #fname="ngModel" class="form-control" required minlength="5">
+         <!-- <div class="text-danger" *ngIf="fname.errors?.['required']">
+          
+            <span>This is required</span>
+         </div>
+         <ng-template #req></ng-template>
+         
+         <div class="text-danger" *ngIf="fname.errors?.['minlength']">
+          
+            <span>First name should have Minimum of 5 Characters</span>
+         </div> -->
+         <ng-container *ngIf="fname.errors">
+            <ng-container *ngTemplateOutlet="requiredError; context: {control: fname}"></ng-container>
+            <ng-container *ngIf="fname.errors?.['minlength']">
+              <ng-container *ngTemplateOutlet="minLengthError; context: { control: fname, minlength: 5 }"></ng-container>
+            </ng-container>
+          </ng-container>
+        </div> 
+        <div class="col-md-4">
+          <label >Last name</label>
+          <input type="text"  [(ngModel)]="user.lname" name="lname" #lname="ngModel"  required class="form-control" minlength="2">
+          <ng-container *ngIf="lname.errors">
+          <ng-container *ngTemplateOutlet="requiredError; context:{control:lname}"></ng-container>
+          <ng-container *ngTemplateOutlet="minLengthError; context: { control: lname, minlength: 2 }"></ng-container>
+
+          </ng-container>      
+        </div>
+        <div class="col-md-4">
+          <label >Email</label>
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroupPrepend2"></span>
+            <input type="text" [(ngModel)]="user.email" name="email"  class="form-control"  #email="ngModel" required>
+            <ng-container *ngIf="email.errors">
+                <ng-container *ngTemplateOutlet="requiredError; context:{control:email}"></ng-container>
+
+            </ng-container>
+            
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label >City</label>
+          <input type="text" [(ngModel)]="user.city" name="city"  class="form-control" #city="ngModel" required>
+          <ng-container *ngIf="city.errors">
+            <ng-container *ngTemplateOutlet="requiredError; context:{control:city}"></ng-container>
+        </ng-container>
+        </div>
+        <div class="col-md-3">
+          <label >State</label>
+          <select class="form-select" [(ngModel)]="user.state" name="state"  #state="ngModel" class="form-control" required>
+            <ng-container *ngIf="state.errors">
+                <ng-container *ngTemplateOutlet="requiredError; context:{control:state}"></ng-container>
+            </ng-container>
+            
+            <option selected disabled value="">Choose...</option>
+            <option value="TN">TN</option>
+            <option value="KL">kl</option>
+            <option value="AP">AP</option>
+            <option value="KN">KN</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label >Zip</label>
+          <input type="text" name="zip"  class="form-control" [(ngModel)]="user.zip"  #zip="ngModel" required>
+          <ng-container *ngIf="zip.errors">
+            <ng-container *ngTemplateOutlet="requiredError; context:{control:zip}"></ng-container>
+          </ng-container>
+          
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input"  name="isAgreed"  [(ngModel)]="user.isAgreed" type="checkbox"  required #isAgreed="ngModel" >
+            <ng-container *ngIf="isAgreed.errors">
+                <ng-container *ngTemplateOutlet="requiredError; context:{control:isAgreed}"></ng-container>
+                <div id="invalidCheck3Feedback" class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+            </ng-container>
+            
+            <label class="form-check-label" for="invalidCheck2">
+              Agree to terms and conditions
+            </label>
+           
+            
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary" [disabled]="form.invalid" type="button" (click)="onSubmit()">Submit form</button>
+        </div>
+      </form>
+</div>
+
+<ng-template #requiredError let-control="control">
+
+    <div class="text-danger" *ngIf="control.errors?.['required']&& control.touched &&control.dirty">
+          
+        <span>This is required</span>
+     </div>
+</ng-template>
+
+<ng-template #minLengthError let-control="control" let-minlength="minlength">
+    <div class="text-danger" *ngIf="control.errors?.['minlength']">
+      <span>{{ control.name | titlecase }} should have a minimum of {{ minlength }} characters</span>
+    </div>
+  </ng-template>

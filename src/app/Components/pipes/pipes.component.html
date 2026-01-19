@@ -1,0 +1,40 @@
+<h2 >Pipes in Angular </h2>
+<p>Angular Pipes are a powerful feature that allows you to transform and format data in your Angular templates
+    <br>
+    
+<strong> UpperCase Pipe: </strong>
+<p>{{ 'Hello' | uppercase }}</p> <!-- Output: HELLO WORLD -->
+<strong>LowerCase Pipe:</strong>
+<p>{{ 'Hii' | lowercase }}</p> <!-- Output: hello world -->
+<strong>Slice Pipe: </strong>
+
+<p>{{ 'AML360z' | uppercase | slice:0:5 }}</p> 
+<strong>Decimal Pipe:</strong>
+<p>{{ 3.14159 | number:'1.2-2' }}</p> <!-- Output: 3.14 -->
+<strong>Percentage Pipe:</strong>
+<p>{{ 0.75 | percent }}</p> <!-- Output: 75% -->
+<strong>Json Pipe:</strong>
+<p>{{ { name: 'John', age: 30 } | json }}</p> <!-- Output: { "name": "John", "age": 30 } -->
+<strong>Currency Pipe:</strong>
+<p>{{ 100 | currency:'USD':'symbol' }}</p> <!-- Output: $100.00 -->
+<p>{{ 100 | currency:'INR':'symbol':'1.2-2' }}</p> <!-- Output: €100.00 -->
+
+<strong>Date Pipe:</strong>
+<p>{{ today | date:'fullDate' }}</p> <!-- Output: Monday, October 30, 2023 -->
+<p>{{ today | date:'shortTime' }}</p> <!-- Output: 12:00 PM -->
+<p>{{today|date:'dd-yyyy-MM'}}</p>
+<div class="space">
+    <strong>Filter Pipe</strong>
+
+    <!-- Input field for filtering -->
+    <input [(ngModel)]="filterText" placeholder="Search......." [value]="filterText|titlecase"/>
+    
+</div>
+
+<!-- List of items -->
+<ul >
+<h6>List of Items</h6>
+  <li *ngFor="let item of items | filter:filterText">
+    {{ item }}
+  </li>
+</ul>

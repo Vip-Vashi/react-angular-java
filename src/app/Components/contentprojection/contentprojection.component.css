@@ -1,0 +1,10 @@
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  .content{
+    background-color: #ffff;
+    border-radius: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+  }

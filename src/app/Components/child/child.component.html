@@ -1,0 +1,16 @@
+<div style="border: 2px solid cyan; border-style: groove;">
+
+<h2>Child Component</h2>
+
+<!-- Display data received from the parent component -->
+<p>Message from Parent: {{ messageFromParent }}</p>
+
+<!-- Input field to enter a response to send to the parent -->
+<input
+  [(ngModel)]="responseMessage"
+  placeholder="Enter a response"
+/>
+
+<!-- Button to emit the event to the parent component -->
+<button (click)="sendResponseToParent()">Send Response to Parent</button>
+</div>

@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="col-8">
+      <div class="card">
+        <div class="card-header bg-success">
+          <div class="row">
+            <div class="col-6">
+             <a > <h2>Users Management</h2></a>
+            </div>
+            <div class="col-6 text-end">
+              <button class="btn btn-info btn-sm " (click)="back()" routerLink="/add-user">🔙</button>
+              
+              <button class="btn btn-primary btn-sm" (click)="addUser()" routerLink="/add-user">Add user</button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="card-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <!-- <th scope="col">Id</th> -->
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Age</th>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (item of userList; track $index) {
+                <tr>
+                  <!-- <th scope="row">{{item.id}}</th> -->
+                  <td>{{item.name}}</td>
+                  <td>{{item.email}}</td>
+                  <td>{{item.age}}</td>
+                  <td>{{item.city}}</td>
+                  <td>{{item.country}}</td>
+                  <td>
+                    <button class="btn btn-info btn-sm" (click)="editUser(item)">Edit</button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteUser(item.id)">Delete</button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-4" *ngIf="showUserForm">
+      <div class="card">
+        <div class="card-header bg-success">
+          <div class="row">
+            <div class="col-6">
+              <h2>{{isEditMode ? 'Edit User' : 'New User'}}</h2>
+            </div>
+            <div class="col-6 text-end">
+              <button class="btn btn-danger btn-sm" (click)="closeUserForm()">Close</button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="card-body">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Name</label>
+                <input
+                  type="name"
+                  class="form-control"
+                  [(ngModel)]="userobj.name"
+                  id="name"
+                  placeholder="Name"
+                  name="name"
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  [(ngModel)]="userobj.email"
+                  id="inputEmail4"
+                  placeholder="Email"
+                  name="email"
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  [(ngModel)]="userobj.password"
+                  id="inputPassword4"
+                  placeholder="Password"
+                  name="password"
+                />
+              </div>
+            </div>
+          
+            <div class="form-group col-md-6">
+              <label for="age">Age</label>
+              <input
+                type="text"
+                class="form-control"
+                id="age"
+                [(ngModel)]="userobj.age"
+                placeholder="Age"
+                name="age"
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" [(ngModel)]="userobj.city" id="inputCity" name="city" />
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputCountry">Country</label>
+                <input type="text" class="form-control" [(ngModel)]="userobj.country" id="inputCountry" name="country" />
+              </div>
+            </div>
+           
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

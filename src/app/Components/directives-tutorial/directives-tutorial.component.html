@@ -1,0 +1,15 @@
+<div [ngClass]="theme"   >
+
+<h1> Structural Directives</h1>
+    <div class="col-6">
+   <ul>
+    <h2 class="text-center">Our Branches </h2>
+    <li *ngFor="let item of cityList">
+        {{item}}
+    </li>
+   </ul>
+   
+   <button (click)="onChange()" >🌔->🌑</button>
+ 
+</div>
+</div>

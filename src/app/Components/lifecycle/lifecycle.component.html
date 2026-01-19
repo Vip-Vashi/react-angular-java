@@ -1,0 +1,14 @@
+<!-- <ng-container  *ngIf="showComponent" >
+
+
+    <h1>Angular Component Lifecycle Demo</h1>
+    <button (click)="toggleComponent()">Toggle Component</button>
+    <button (click)="updateInput()">Update Input</button>
+</ng-container> -->
+<div   *ngIf="showComponent" >
+  <h1>Angular Component Lifecycle Demo</h1>
+  <!-- <h1>{{ title }}</h1> -->
+  <p>Counter: {{ counter }}</p>
+  <button type="reset" (click)="stopCounter()">Stop</button>
+</div>
+  <!-- <app-lifecycle-demo *ngIf="showComponent" [input]="input"></app-lifecycle-demo> -->

@@ -1,0 +1,27 @@
+<div class="row">
+   <h1 class="text-center"> Data Binding</h1> 
+    <div class="col-6">
+        <h2>Interpolation </h2>
+        <h3>Welcome {{name}}!!🎉🎉</h3>
+        <p>Last Updated : {{currentDate || 'No Date'}}</p>
+    </div>
+    <div >
+        <h2>Property Binding</h2>
+        <input type="text"  [placeholder]="placeholder" [value]="display" [(ngModel)]="display">
+        <button (click)="updateName()">Update Name</button>
+
+    </div>
+    <div>
+        <h2>Two way & Event Binding</h2>
+        <p> I am {{name}} from  - {{state}}</p>
+        <select (change)="onStatechange" [(ngModel)]="state">
+            <option value="Tamilnadu">Tamilnadu </option>
+            <option value="Karnataka">Karnataka     </option>
+            <option value="Kerala">   Kerala  </option>
+            <option value="Uttar">Uttar     </option>
+            <option value="Andhra">   Andhra  </option>
+        </select>
+
+        <input type="text" [(ngModel)]="name" >
+    </div>
+</div>

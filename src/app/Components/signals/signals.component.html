@@ -1,0 +1,7 @@
+<div>
+    <h1>Counter: {{ signalService.counter() }}</h1>
+    <h2>Double Counter: {{ signalService.doubleCounter() }}</h2>
+    <h3>Sum :{{signalService.sum()}}</h3>
+    <button (click)="signalService.increment()">Increment</button>
+    <button (click)="signalService.reset()">Reset</button>
+  </div>

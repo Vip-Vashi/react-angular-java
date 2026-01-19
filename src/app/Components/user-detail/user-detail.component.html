@@ -1,0 +1,8 @@
+<p>user-detail works!</p>
+<h1>User Details</h1>
+<div *ngIf="user">
+  
+  <p><strong>Name:</strong> {{ user?.name }}</p>
+  <p><strong>Email:</strong> {{ user?.email }}</p>
+</div>
+<a [routerLink]="['/users']"><button  class="btn btn-primary">Back to user list</button> </a>

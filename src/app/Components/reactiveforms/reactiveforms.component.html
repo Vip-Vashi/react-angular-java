@@ -1,0 +1,149 @@
+<div class="container">
+    <h3>User Registration  using Reactive Forms & Custom Validation </h3>
+    <form class="row g-3" [formGroup]="user" (ngSubmit)="save()">
+      <div class="col-md-4">
+        <label>First name</label>
+        <input type="text" name="fname" formControlName="fname" class="form-control" required minlength="5">
+        <div *ngIf="user.controls['fname'].errors">
+          <div class="text-danger" *ngIf="user.controls['fname'].errors?.['required'] && user.controls['fname'].touched">
+            <span>First Name is required</span>
+          </div>
+          <div class="text-danger" *ngIf="user.controls['fname'].errors?.['minlength']">
+            <span>First Name should have a minimum of 5 characters</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <label>Last name</label>
+        <input type="text" formControlName="lname" required class="form-control" minlength="2">
+        <div *ngIf="user.controls['lname'].errors">
+          <div class="text-danger" *ngIf="user.controls['lname'].errors?.['required'] && user.controls['lname'].touched">
+            <span>Last Name is required</span>
+          </div>
+          <div class="text-danger" *ngIf="user.controls['lname'].errors?.['minlength']">
+            <span>Last Name should have a minimum of 2 characters</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <label>Email</label>
+        <input type="text" formControlName="email" class="form-control" required>
+        <div *ngIf="user.controls['email'].errors">
+          <div class="text-danger" *ngIf="user.controls['email'].errors?.['required'] && user.controls['email'].touched">
+            <span>Email is required</span>
+          </div>
+          <div class="text-danger" *ngIf="user.controls['email'].errors?.['email'] && user.controls['email'].touched">
+            <span>Provide a valid email</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password"class="form-control" required />
+        <div *ngIf="user.get('password')?.invalid && user.get('password')?.touched">
+          <small *ngIf="user.get('password')?.errors?.['required']">Password is required.</small>
+          <small *ngIf="user.get('password')?.errors?.['minlength']">Password must be at least 8 characters long.</small>
+          <!-- <div class="text-danger" *ngIf="user.controls['password'].errors?.['passwordMatchValidator'];">
+            <span>Passwords do not match.</span>
+          </div> -->
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" formControlName="confirmPassword" type="password"class="form-control" required />
+        <div *ngIf="user.get('confirmPassword')?.invalid && user.get('confirmPassword')?.touched">
+          <small *ngIf="user.get('confirmPassword')?.errors?.['required']">Confirm Password is required.</small>
+        </div>
+        <div class="text-danger" *ngIf="user.errors?.['passwordMismatch']">
+          <span>Passwords do not match.</span>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <label>City</label>
+        <input type="text" formControlName="city" class="form-control" required>
+        <div *ngIf="user.controls['city'].errors">
+          <div class="text-danger" *ngIf="user.controls['city'].errors?.['required'] && user.controls['city'].touched">
+            <span>City is required</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-3">
+        <label>State</label>
+        <select class="form-select" formControlName="state" required>
+          <option selected disabled value="">Choose...</option>
+          <option value="TN">TN</option>
+          <option value="KL">KL</option>
+          <option value="AP">AP</option>
+          <option value="KN">KN</option>
+        </select>
+        <div *ngIf="user.controls['state'].errors">
+          <div class="text-danger" *ngIf="user.controls['state'].errors?.['required'] && user.controls['state'].touched">
+            <span>State is required</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-3">
+        <label>Zip</label>
+        <input type="text" formControlName="zip" class="form-control" required>
+        <div *ngIf="user.controls['zip'].errors">
+          <div class="text-danger" *ngIf="user.controls['zip'].errors?.['required'] && user.controls['zip'].touched">
+            <span>Zip is required</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" required formControlName="isAgreed">
+          <div *ngIf="user.controls['isAgreed'].errors">
+            <div class="text-danger" *ngIf="user.controls['isAgreed'].errors?.['required'] && user.controls['isAgreed'].touched">
+              <div id="invalidCheck3Feedback" class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+          <label class="form-check-label" for="invalidCheck2">
+            Agree to terms and conditions
+          </label>
+        </div>
+      </div>
+  
+      <div class="col-12">
+        <button class="btn btn-primary" [disabled]="user.invalid" type="submit">Submit form</button>
+      </div>
+    </form>
+  </div>
+  <br>
+  
+    <a routerLink="./template" style="margin-left: 5px;">
+        <button class=" btn btn-info sm "style="margin-left: 25px;">
+            Route  Child Component
+           </button>
+      </a>
+
+
+  
+ 
+  <router-outlet></router-outlet>
+  
+<!-- 
+<ng-template #requiredError let-control="control">
+
+    <div class="text-danger" *ngIf="control.errors?.['required']&& control.touched &&control.dirty">
+          
+        <span>This is required</span>
+     </div>
+</ng-template>
+
+<ng-template #minLengthError let-control="control" let-minlength="minlength">
+    <div class="text-danger" *ngIf="control.errors?.['minlength']">
+      <span>{{ control.name | titlecase }} should have a minimum of {{ minlength }} characters</span>
+    </div>
+  </ng-template> -->
